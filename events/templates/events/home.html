@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Home Page
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "events/home.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section id="calendar">
+        <h1>hello! Events for {{ month }} {{ year }}</h1>
+
+        <p>As of {{ time }}</p>
+        <br><br>
+        <div class="calendar-table">{{ calendar|safe }}</div>
+        <br><br><br><br>
+        <p>Copy right (c) {{ current_year }}</p>
+    </section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	All Events
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "events/all-events.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section id="all-events">
+        <h1>Events</h1>
+        {% for event in events %}
+            <ul>
+                <li>
+                    <h2>{{ event.name }}</h2>
+                </li>
+                <li>
+                    <strong>Date: </strong>
+                    {{ event.date }}
+                </li>
+                <li>
+                    <strong>Venue: </strong>
+                    {{ event.venue }}
+                </li>
+                <li>
+                    <strong>Manager: </strong>
+                    {{ event.manager }}
+                </li>
+                <li>
+                    <strong>Description: </strong>
+                    {{ event.description }}
+                </li>
+                <li>
+                    <strong>Confirmed Attendees:</strong><br>
+                    {% for user in event.attendees.all %}
+                        {{ user }}<br>
+                    {% endfor %}
+                </li>
+
+            </ul>
+        {% endfor %}
+
+    </section>
+{% endblock %}

@@ -1,0 +1,13 @@
+#calendar {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+    /*border: 2px solid green;*/
+    text-align: center;
+}
+
+#calendar table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
