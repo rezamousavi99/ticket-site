@@ -1,8 +1,11 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 import calendar
 from calendar import HTMLCalendar, month_name
 from datetime import datetime
 from .models import Event
+from .forms import VenueForm
+from django.urls import reverse
 # Create your views here.
 
 
@@ -37,4 +40,22 @@ def all_events(request):
     return render(request, 'events/all-events.html', {
         'events': events,
         # 'all_attendees': events.attendees.all()
+    })
+
+
+def add_venue(request):
+    submitted = False
+    if request.method == 'POST':
+        venue_form = VenueForm(request.POST)
+        if venue_form.is_valid():
+            venue_form.save()
+            return HttpResponseRedirect(reverse("add_venue") + "?submitted=True")
+    else:
+        venue_form = VenueForm()
+        if "submitted" in request.GET:
+            submitted = True
+
+    return render(request, "events/add_venue.html", {
+        "form": venue_form,
+        "submitted": submitted
     })
