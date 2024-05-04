@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	{{ venue.name }}
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'events/detail-venue.css' %}">
+{% endblock %}
+
+{% block content %}
+	<section id="venue-detail">
+        <h1>{{ venue.name }}</h1>
+
+        <ul>
+            <li>
+                <h3>Address</h3>
+                <p>{{ venue.address }}</p>
+            </li>
+            <li>
+                <h3>Zip Code</h3>
+                <p>{{ venue.zip_code }}</p>
+            </li>
+            <li>
+                <h3>Phone Number</h3>
+                <p>{{ venue.phone }}</p>
+            </li>
+            <li>
+                <h3>Website</h3>
+                <p><a href="{{ venue.website }}">{{ venue.website }}</a></p>
+            </li>
+            <li>
+                <h3>Email Address</h3>
+                <p><a href="mailto:{{ venue.email_address }}">{{ venue.email_address }}</a></p>
+            </li>
+        </ul>
+
+    </section>
+{% endblock %}

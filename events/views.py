@@ -3,7 +3,7 @@ from django.shortcuts import render
 import calendar
 from calendar import HTMLCalendar, month_name
 from datetime import datetime
-from .models import Event
+from .models import Event, Venue
 from .forms import VenueForm
 from django.urls import reverse
 # Create your views here.
@@ -37,7 +37,7 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
 
 def all_events(request):
     events = Event.objects.all()
-    return render(request, 'events/all-events.html', {
+    return render(request, 'events/all_events.html', {
         'events': events,
         # 'all_attendees': events.attendees.all()
     })
@@ -58,4 +58,18 @@ def add_venue(request):
     return render(request, "events/add_venue.html", {
         "form": venue_form,
         "submitted": submitted
+    })
+
+
+def list_venues(request):
+    venues = Venue.objects.all()
+    return render(request, 'events/all_venues.html', {
+        'venues': venues
+    })
+
+
+def detail_venue(request, venue_id):
+    venue = Venue.objects.get(pk=venue_id)
+    return render(request, 'events/detail_venue.html', {
+        'venue': venue
     })

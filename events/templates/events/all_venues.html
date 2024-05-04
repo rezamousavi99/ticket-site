@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Venues
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'events/all-venues.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id="venue-list">
+        <h1>Venues....</h1>
+        <ul>
+            {% for venue in venues %}
+            	<li>
+                    <a href="{% url 'detail_venue' venue.id %}">{{ venue }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </section>
+{% endblock %}
