@@ -10,6 +10,7 @@
 
 #venue-list h1{
     padding-left: 1rem;
+    text-align: center;
 }
 
 #venue-list ul{
@@ -28,12 +29,12 @@
   display: block;
   padding: 1rem;
   text-decoration: none;
-  color: #01143d;
+  color: #14181f;
   font-weight: bold;
 }
 
 #venue-list a:hover,
 #venue-list a:active {
-    background-color: #01143d;
+    background-color: #14181f;
     color: white;
 }

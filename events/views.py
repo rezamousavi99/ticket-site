@@ -73,3 +73,18 @@ def detail_venue(request, venue_id):
     return render(request, 'events/detail_venue.html', {
         'venue': venue
     })
+
+
+def search_venues(request):
+    if request.method == "POST":
+        search_input = request.POST['search_input']
+        # print(f'input user --> {search_input}')
+        searched_venues = Venue.objects.filter(name__contains=search_input)
+        # print(f'venues --> {searched_venues}')
+        # print(bool(searched_venues))
+        return render(request, 'events/search_venues.html', {
+            'searched_venues': searched_venues,
+            'search_input': search_input
+        })
+    else:
+        return render(request, 'events/search_venues.html', {})

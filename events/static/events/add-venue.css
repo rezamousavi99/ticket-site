@@ -59,19 +59,19 @@
 
 #venue-form button{
     padding: 0.5rem 1.5rem;
-    background-color: #01143d;
+    background-color: #14181f;
     font: inherit;
     color: white;
     border-radius: 6px;
     cursor: pointer;
-    border: 1px solid #01143d;
+    border: 1px solid #14181f;
     font-weight: bold;
 }
 
 #venue-form button:active,
 #venue-form button:hover {
-    background-color: #4b7bff;
-    border-color: #4b7bff;
+    background-color: #ff3d00;
+    border-color: #ff3d00;
     color: black;
 }
 

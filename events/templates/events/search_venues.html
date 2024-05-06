@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Search Venue
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'events/all-venues.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if searched_venues %}
+        <section id="venue-list">
+            <h1>You searched for "{{ search_input }}"</h1>
+            <ul>
+                {% for venue in searched_venues %}
+                    <li>
+                        <a href="{% url 'detail_venue' venue.id %}">{{ venue }}</a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </section>
+    {% else %}
+        <section id="venue-list">
+            <h1>NOT FOUND...</h1>
+
+        </section>
+    {% endif %}
+
+{% endblock %}
