@@ -15,7 +15,8 @@
         <ul>
             {% for venue in venues %}
             	<li>
-                    <a href="{% url 'detail_venue' venue.id %}">{{ venue }}</a>
+                    <a class="venue-title" href="{% url 'detail_venue' venue.id %}">{{ venue }}</a>
+                    <a class="update-venue" href="{% url 'update-venue' venue.id %}">Update</a>
                 </li>
             {% endfor %}
 

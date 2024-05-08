@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+	Add Venue
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'events/add-venue.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if submitted %}
+        <div class="alert-success">
+            <h2>Venue has Updated successfully!</h2>
+        </div>
+
+    {% else %}
+
+    {% if form.errors %}
+        <div class="alert-error">
+            <h1>Something went wrong during updating!</h1>
+            <p>check the form and submit your information again</p>
+        </div>
+    {% endif %}
+
+    <section id="venue-form">
+        <h1>Update Venue</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            	<div class="venue-form-control {% if field.errors %}errors{% endif %}">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+
+            <button>Update</button>
+        </form>
+
+    </section>
+    {% endif %}
+
+{% endblock %}

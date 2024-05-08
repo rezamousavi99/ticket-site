@@ -22,19 +22,36 @@
     margin: 1rem 0;
     border: 1px solid #ccc;
     border-radius: 12px;
+    display: flex;
 }
 
 #venue-list a{
   border-radius: 12px;
-  display: block;
+  /*display: block;*/
   padding: 1rem;
   text-decoration: none;
-  color: #14181f;
   font-weight: bold;
 }
 
-#venue-list a:hover,
-#venue-list a:active {
+#venue-list .venue-title{
+    flex-grow: 1;
+    color: #14181f;
+}
+
+#venue-list .update-venue{
+    color: #14181f;
+}
+
+#venue-list .venue-title:hover,
+#venue-list .venue-title:active {
     background-color: #14181f;
     color: white;
 }
+
+
+#venue-list .update-venue:hover,
+#venue-list .update-venue:active {
+    background-color: #ff3d00;
+    color: white;
+}
+

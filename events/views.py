@@ -88,3 +88,21 @@ def search_venues(request):
         })
     else:
         return render(request, 'events/search_venues.html', {})
+
+def update_venue(request, venue_id):
+    submitted = False
+    existing_venue = Venue.objects.get(pk=venue_id)
+    if request.method == "POST":
+        venue_form = VenueForm(request.POST, instance=existing_venue)
+        if venue_form.is_valid():
+            venue_form.save()
+            return HttpResponseRedirect(reverse("update-venue", args=[existing_venue.id]) + "?submitted=True")
+    else:
+        venue_form = VenueForm(instance=existing_venue)
+        if "submitted" in request.GET:
+            submitted = True
+
+    return render(request, 'events/update_venue.html', {
+        'form': venue_form,
+        'submitted': submitted
+    })
