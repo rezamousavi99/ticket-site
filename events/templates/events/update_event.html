@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
-	Update Venue
+	Update Event
 {% endblock %}
 
 {% block css_files %}
@@ -12,20 +12,18 @@
 {% block content %}
     {% if submitted %}
         <div class="alert-success">
-            <h2>Venue has Updated successfully!</h2>
+            <h2>Event has Updated successfully!</h2>
         </div>
-
     {% else %}
-
-    {% if form.errors %}
-        <div class="alert-error">
-            <h1>Something went wrong during updating!</h1>
-            <p>check the form and submit your information again</p>
-        </div>
-    {% endif %}
+        {% if form.errors %}
+            <div class="alert-error">
+                <h1>Something went wrong during updating!</h1>
+                <p>check the form and submit your information again</p>
+            </div>
+        {% endif %}
 
     <section id="venue-form">
-        <h1>Update Venue</h1>
+        <h1>Update Event</h1>
         <form action="" method="POST">
             {% csrf_token %}
             {% for field in form %}
@@ -38,8 +36,7 @@
 
             <button>Update</button>
         </form>
-
-    </section>
+        </section>
     {% endif %}
 
 {% endblock %}

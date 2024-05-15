@@ -23,6 +23,38 @@
 
 }
 
+/*.update-event{*/
+/*    margin-top: 1rem;*/
+/*    text-align: center;*/
+/*    max-width: 8rem;*/
+/*    text-decoration: none;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 6px;*/
+/*}*/
+
+.update-event{
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    max-width: 8rem;
+}
+
+.update-event a{
+    padding: 0.5rem 0.75rem;
+    border-radius: 12px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.update-event:hover,
+.update-event:active {
+    background-color: #ff3d00;
+    color: white;
+}
+
 
 .date {
     font-weight: bold;

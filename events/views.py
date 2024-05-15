@@ -124,3 +124,22 @@ def add_event(request):
         "form": event_form,
         "submitted": submitted
     })
+
+
+def update_event(request, event_id):
+    submitted = False
+    existing_event = Event.objects.get(pk=event_id)
+    if request.method == 'POST':
+        event_form = EventForm(request.POST, instance=existing_event)
+        if event_form.is_valid():
+            event_form.save()
+            return HttpResponseRedirect(reverse("update-event", args=[existing_event.id]) + "?submitted=True")
+    else:
+        event_form = EventForm(instance=existing_event)
+        if "submitted" in request.GET:
+            submitted = True
+
+    return render(request, "events/update_event.html", {
+        "form": event_form,
+        "submitted": submitted
+    })
