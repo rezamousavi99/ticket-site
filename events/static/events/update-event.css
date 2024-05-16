@@ -1,0 +1,105 @@
+.alert-success {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+    border: 2px solid #035400;
+    background-color: #b8ffae;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: #035400;
+}
+
+.alert-success h2{
+    margin: 0;
+}
+
+.alert-error {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+    border: 2px solid #700000;
+    background-color: #ffcbcb;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: #700000;
+}
+
+#venue-form {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 40rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    background-color: white;
+    padding: 1rem;
+}
+
+#venue-form h1{
+    text-align: center;
+}
+
+.venue-form-control{
+    margin-bottom: 1rem;
+}
+
+.venue-form-control label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.venue-form-control input{
+    width: 100%;
+    font: inherit;
+    display: block;
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#venue-form button{
+    padding: 0.5rem 1.5rem;
+    background-color: #14181f;
+    font: inherit;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #14181f;
+    font-weight: bold;
+}
+
+#venue-form button:active,
+#venue-form button:hover {
+    background-color: #ff3d00;
+    border-color: #ff3d00;
+    color: black;
+}
+
+.errors label{
+    color: #700000;
+}
+
+.errors input{
+    border-color: #700000;
+    background-color: #ffcbcb;
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    font-weight: bold;
+    color: #700000;
+    margin: 0.5rem 0;
+}
+
+
+.venue-form-control input,
+.venue-form-control select,
+.venue-form-control textarea{
+    width: 100%;
+    font: inherit;
+    display: block;
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
