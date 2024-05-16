@@ -38,9 +38,17 @@
     color: #14181f;
 }
 
+#venue-list .update-venue, .delete-venue{
+
+    border-left: 1px solid #ccc;
+}
+
 #venue-list .update-venue{
     color: #14181f;
-    border-left: 1px solid #ccc;
+}
+
+#venue-list .delete-venue{
+    color: #a40000;
 }
 
 #venue-list .venue-title:hover,
@@ -56,3 +64,8 @@
     color: white;
 }
 
+#venue-list .delete-venue:hover,
+#venue-list .delete-venue:active {
+    background-color: #a40000;
+    color: white;
+}

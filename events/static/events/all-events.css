@@ -32,30 +32,49 @@
 /*    border-radius: 6px;*/
 /*}*/
 
-.update-event{
-    margin-top: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    max-width: 8rem;
+.change-event{
+    margin-top: 2rem;
+
+    /*max-width: 8rem;*/
 }
 
-.update-event a{
+.change-event a{
     padding: 0.5rem 0.75rem;
-    border-radius: 12px;
     font-weight: bold;
-    display: block;
+    /*display: block;*/
     text-align: center;
     text-decoration: none;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.delete-event{
+    /*background-color: #f6f8fa;*/
+    color: #a40000;
+}
+
+.update-event{
     color: black;
+}
+
+.change-event a:hover,
+.change-event a:active {
+    color: white;
 }
 
 .update-event:hover,
 .update-event:active {
     background-color: #ff3d00;
-    color: white;
 }
 
+.delete-event:hover,
+.delete-event:active {
+    background-color: #a40000;
+}
 
 .date {
     font-weight: bold;
 }
+
+

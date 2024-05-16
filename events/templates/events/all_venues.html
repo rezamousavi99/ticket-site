@@ -17,6 +17,7 @@
             	<li>
                     <a class="venue-title" href="{% url 'detail_venue' venue.id %}">{{ venue }}</a>
                     <a class="update-venue" href="{% url 'update-venue' venue.id %}">Update</a>
+                    <a class="delete-venue" href="{% url 'delete-venue' venue.id %}">Delete</a>
                 </li>
             {% endfor %}
 

@@ -39,8 +39,9 @@
                         {{ user }}<br>
                     {% endfor %}
                 </li>
-                <li class="update-event">
-                    <a href="{% url "update-event" event.id %}">Edit Event</a>
+                <li class="change-event">
+                    <a class="update-event" href="{% url "update-event" event.id %}">Edit Event</a>
+                    <a class="delete-event" href="{% url "delete-event" event.id %}">Delete Event</a>
                 </li>
             </ul>
         {% endfor %}

@@ -143,3 +143,14 @@ def update_event(request, event_id):
         "form": event_form,
         "submitted": submitted
     })
+
+
+def delete_event(request, event_id):
+    event = Event.objects.get(pk=event_id)
+    event.delete()
+    return HttpResponseRedirect(reverse("all_events"))
+
+def delete_venue(request, venue_id):
+    venue = Venue.objects.get(pk=venue_id)
+    venue.delete()
+    return HttpResponseRedirect(reverse("list_venues"))
