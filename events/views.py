@@ -36,7 +36,7 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
     })
 
 def all_events(request):
-    events = Event.objects.all()
+    events = Event.objects.all().order_by('-date')
     return render(request, 'events/all_events.html', {
         'events': events,
         # 'all_attendees': events.attendees.all()
@@ -62,7 +62,7 @@ def add_venue(request):
 
 
 def list_venues(request):
-    venues = Venue.objects.all()
+    venues = Venue.objects.all().order_by('name')
     return render(request, 'events/all_venues.html', {
         'venues': venues
     })
