@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 import calendar
 from calendar import HTMLCalendar, month_name
@@ -154,3 +154,21 @@ def delete_venue(request, venue_id):
     venue = Venue.objects.get(pk=venue_id)
     venue.delete()
     return HttpResponseRedirect(reverse("list_venues"))
+
+def venue_text(request):
+    response = HttpResponse(content_type='text/plain')
+    response['Content-Disposition'] = 'attachment; filename=venues.txt'
+
+    venues = Venue.objects.all()
+    lines = []
+    for venue in venues:
+        lines.append(f'name: {venue.name}\n')
+        lines.append(f'address: {venue.address}\n')
+        lines.append(f'zip code: {venue.zip_code}\n')
+        lines.append(f'phone: {venue.phone}\n')
+        lines.append(f'website: {venue.website}\n')
+        lines.append(f'email address: {venue.email_address}\n')
+        lines.append('-' * 40 + '\n')
+
+    response.writelines(lines)
+    return response
