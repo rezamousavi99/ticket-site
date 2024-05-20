@@ -6,6 +6,7 @@ from datetime import datetime
 from .models import Event, Venue
 from .forms import VenueForm, EventForm
 from django.urls import reverse
+import csv
 # Create your views here.
 
 
@@ -171,4 +172,16 @@ def venue_text(request):
         lines.append('-' * 40 + '\n')
 
     response.writelines(lines)
+    return response
+
+
+def venue_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=venues.csv'
+
+    writer = csv.writer(response)
+    writer.writerow(['Name', 'Address', 'Zip Code', 'Phone', 'Website', 'Email'])
+    venues = Venue.objects.all()
+    for venue in venues:
+        writer.writerow([venue.name, venue.address, venue.zip_code, venue.phone, venue.website, venue.email_address])
     return response
