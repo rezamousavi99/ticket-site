@@ -69,3 +69,14 @@
     background-color: #a40000;
     color: white;
 }
+
+#pagination {
+    margin: 3rem auto;
+    width: 90%;
+    max-width: 40rem;
+    padding: 1rem;
+}
+
+#pagination .page-number{
+    display: inline;
+}
