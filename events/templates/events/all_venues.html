@@ -11,7 +11,7 @@
 
 {% block content %}
     <section id="venue-list">
-        <h1>Venues....</h1>
+        <h1>Venues</h1>
         <ul>
             {% for venue in venues %}
             	<li>
@@ -32,15 +32,32 @@
 {#        <p>Number of Pages: {{ venues.paginator.num_pages }}</p>#}
 {#        <hr>#}
 {#        <br>#}
-        {% if venues.has_previous %}
-            <a href="?page=1">&laquo First</a>
-            <a href="?page={{ venues.previous_page_number }}">Previous</a>
-        {% endif %}
-        <p class="page-number"> Page {{ venues.number }} of {{ venues.paginator.num_pages }}</p>
+            {% if venues.has_previous %}
+                <li>
+                    <a href="?page=1">&laquo First</a>
+                </li>
+                <li>
+                    <a href="?page={{ venues.previous_page_number }}">Previous</a>
+                </li>
+            {% endif %}
+{#            <li>#}
+{#                <p> Page {{ venues.number }} of {{ venues.paginator.num_pages }}</p>#}
+{#            </li>#}
+            {% for venue in nums %}
+                <li>
+                    <a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+                </li>
+            {% endfor %}
+            
+    
+            {% if venues.has_next %}
+                <li>
+                    <a href="?page={{ venues.next_page_number }}">Next</a>
+                </li>
+                <li>
+                    <a href="?page={{ venues.paginator.num_pages }}">Last &raquo</a>
+                </li>
+            {% endif %}
 
-        {% if venues.has_next %}
-            <a href="?page={{ venues.next_page_number }}">Next</a>
-            <a href="?page={{ venues.paginator.num_pages }}">Last &raquo</a>
-        {% endif %}
     </section>
 {% endblock %}

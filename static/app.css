@@ -68,7 +68,7 @@ h3 {
 /*body{*/
 /*  background: #f2f2f2;*/
 /*}*/
-nav{
+#main-navigation{
   background: #171c24;
   display: flex;
   flex-wrap: wrap;

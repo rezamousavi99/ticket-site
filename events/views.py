@@ -75,13 +75,16 @@ def list_venues(request):
     venue_list = Venue.objects.all()
 
     #set up Pagination
-    p = Paginator(venue_list, 3)
+    p = Paginator(venue_list, 4)
     page = request.GET.get('page')
     venues = p.get_page(page)
+    nums = 'a' * venues.paginator.num_pages
+    print(nums)
 
     return render(request, 'events/all_venues.html', {
         # 'venue_list': venue_list,
-        'venues': venues
+        'venues': venues,
+        'nums': nums
     })
 
 
