@@ -19,7 +19,12 @@
         <li><a href="{% url "venue-text" %}">Venue Text File</a></li>
         <li><a href="{% url "venue-csv" %}">Venue csv File</a></li>
         <li><a href="{% url "venue-pdf" %}">Venue pdf File</a></li>
-        <li><a href="{% url "login-user" %}">login</a></li>
+         {% if user.is_authenticated %}
+             <li><a href="{% url "logout" %}">Logout</a></li>
+         {% else %}
+             <li><a href="{% url "register" %}">Register</a></li>
+             <li><a href="{% url "login" %}">Login</a></li>
+         {% endif %}
      </div>
      <div class="search-icon">
         <span class="fas fa-search"></span>

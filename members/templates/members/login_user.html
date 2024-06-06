@@ -14,14 +14,14 @@
         <section id="alert" role="alert">
         	<div>
                 <h2>User has not found!</h2>
-                <p>Have you ever register?</p>
+                <p>Have you ever registered?</p>
             </div>
         </section>
     {% endif %}
 
     <section id="login-form">
         <h2>Log in</h2>
-        <form action="{% url 'login-user' %}" method="POST">
+        <form action="{% url 'login' %}" method="POST">
             {% for form in login_form %}
                 {% csrf_token %}
                 <div class="form-control {% if form.errors %}errors{% endif %}">

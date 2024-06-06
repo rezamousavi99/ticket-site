@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import LoginForm
-from django.contrib.auth import authenticate, login
+from .forms import LoginForm, RegisterUserForm
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -31,4 +31,28 @@ def login_user(request):
     else:
         return render(request, 'members/login_user.html', {
             "login_form": LoginForm()
+        })
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+def register_user(request):
+    if request.method == 'POST':
+        form = RegisterUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return HttpResponseRedirect('/')
+        else:
+            return render(request, 'members/register_user.html', {
+                "register_form": form
+            })
+    else:
+        form = RegisterUserForm()
+        return render(request, 'members/register_user.html', {
+            "register_form": form
         })
