@@ -21,8 +21,10 @@
             {% for venue in venues %}
             	<li>
                     <a class="venue-title" href="{% url 'detail_venue' venue.id %}">{{ venue }}</a>
-                    <a class="update-venue" href="{% url 'update-venue' venue.id %}">Update</a>
-                    <a class="delete-venue" href="{% url 'delete-venue' venue.id %}">Delete</a>
+                    {% if user.is_authenticated %}
+                        <a class="update-venue" href="{% url 'update-venue' venue.id %}">Update</a>
+                        <a class="delete-venue" href="{% url 'delete-venue' venue.id %}">Delete</a>
+                    {% endif %}
                 </li>
             {% endfor %}
 

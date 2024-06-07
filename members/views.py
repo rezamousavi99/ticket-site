@@ -45,6 +45,7 @@ def register_user(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
+            print(user)
             login(request, user)
             return HttpResponseRedirect('/')
         else:

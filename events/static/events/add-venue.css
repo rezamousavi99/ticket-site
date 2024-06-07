@@ -13,7 +13,7 @@
     margin: 0;
 }
 
-.alert-error {
+.alert-error, #login-alert {
     margin: 8rem auto 3rem auto;
     width: 90%;
     max-width: 60rem;
@@ -23,6 +23,23 @@
     padding: 1rem 2rem;
     color: #700000;
 }
+
+#login-alert a{
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #14181f;
+    border-radius: 6px;
+    background-color: #14181f;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+#login-alert a:hover,
+#login-alert a:active{
+    background-color: #ff3d00;
+    color: #14181f;
+}
+
 
 #venue-form {
     margin: 8rem auto 3rem auto;
@@ -91,3 +108,4 @@
     color: #700000;
     margin: 0.5rem 0;
 }
+

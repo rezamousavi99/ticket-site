@@ -10,6 +10,11 @@
 {% endblock %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+
+
+
+
     {% if submitted %}
         <div class="alert-success">
             <h2>Event has Updated successfully!</h2>
@@ -39,4 +44,13 @@
         </section>
     {% endif %}
 
+
+
+
+    {% else %}
+        <section id="login-alert">
+            <h1>Sorry! You must be logged in to view this page...</h1>
+            <a href="{% url "login" %}">Log in</a>
+        </section>
+    {% endif %}
 {% endblock %}
