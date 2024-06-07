@@ -25,7 +25,7 @@
     display: flex;
 }
 
-#venue-list a{
+ul a{
   border-radius: 12px;
   /*display: block;*/
   padding: 1rem;
@@ -33,39 +33,39 @@
   font-weight: bold;
 }
 
-#venue-list .venue-title{
+.venue-title{
     flex-grow: 1;
     color: #14181f;
 }
 
-#venue-list .update-venue, .delete-venue{
+.update-venue, .delete-venue{
 
     border-left: 1px solid #ccc;
 }
 
-#venue-list .update-venue{
+.update-venue{
     color: #14181f;
 }
 
-#venue-list .delete-venue{
+.delete-venue{
     color: #a40000;
 }
 
-#venue-list .venue-title:hover,
-#venue-list .venue-title:active {
+.venue-title:hover,
+.venue-title:active {
     background-color: #14181f;
     color: white;
 }
 
 
-#venue-list .update-venue:hover,
-#venue-list .update-venue:active {
+.update-venue:hover,
+.update-venue:active {
     background-color: #ff3d00;
     color: white;
 }
 
-#venue-list .delete-venue:hover,
-#venue-list .delete-venue:active {
+.delete-venue:hover,
+.delete-venue:active {
     background-color: #a40000;
     color: white;
 }
@@ -106,3 +106,36 @@
     padding: 0.5rem;
     display: inline;
 }
+
+#download-file a{
+    border: 1px solid #ccc;
+    color: black;
+    border-radius: 16px;
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    /*font-weight: bold;*/
+
+}
+
+
+.text:hover,
+.text:active{
+    background-color: #003085;
+    color: white !important;
+    border-color: #003085 !important;
+}
+
+.csv:hover,
+.csv:active{
+    background-color: #107c41;
+    color: white !important;
+    border-color: #107c41 !important;
+}
+
+.pdf:hover,
+.pdf:active{
+    background-color: #b30b00;
+    color: white !important;
+    border-color: #b30b00 !important;
+}
+

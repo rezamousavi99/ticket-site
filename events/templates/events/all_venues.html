@@ -12,6 +12,11 @@
 {% block content %}
     <section id="venue-list">
         <h1>Venues</h1>
+        <div id="download-file">
+            <a href="{% url "venue-text" %}" class="text">Text</a>
+            <a href="{% url "venue-csv" %}" class="csv">CSV</a>
+            <a href="{% url "venue-pdf" %}" class="pdf">PDF</a>
+        </div>
         <ul>
             {% for venue in venues %}
             	<li>

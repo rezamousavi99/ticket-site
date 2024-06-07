@@ -79,7 +79,7 @@ def list_venues(request):
     page = request.GET.get('page')
     venues = p.get_page(page)
     nums = 'a' * venues.paginator.num_pages
-    print(nums)
+    # print(nums)
 
     return render(request, 'events/all_venues.html', {
         # 'venue_list': venue_list,
