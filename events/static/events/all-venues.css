@@ -117,25 +117,45 @@ ul a{
 
 }
 
-
-.text:hover,
-.text:active{
+a[href^="/venue-text/"]:hover,
+a[href^="/venue-text/"]:active{
     background-color: #003085;
     color: white !important;
     border-color: #003085 !important;
 }
 
-.csv:hover,
-.csv:active{
+a[href^="/venue-csv/"]:hover,
+a[href^="/venue-csv/"]:active{
     background-color: #107c41;
     color: white !important;
     border-color: #107c41 !important;
 }
 
-.pdf:hover,
-.pdf:active{
+a[href^="/venue-pdf/"]:hover,
+a[href^="/venue-pdf/"]:active{
     background-color: #b30b00;
     color: white !important;
     border-color: #b30b00 !important;
 }
+
+/*.text:hover,*/
+/*.text:active{*/
+/*    background-color: #003085;*/
+/*    color: white !important;*/
+/*    border-color: #003085 !important;*/
+/*}*/
+
+/*.csv:hover,*/
+/*.csv:active{*/
+/*    background-color: #107c41;*/
+/*    color: white !important;*/
+/*    border-color: #107c41 !important;*/
+/*}*/
+
+/*.pdf:hover,*/
+/*.pdf:active{*/
+/*    background-color: #b30b00;*/
+/*    color: white !important;*/
+/*    border-color: #b30b00 !important;*/
+/*}*/
 
