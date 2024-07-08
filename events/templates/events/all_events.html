@@ -41,10 +41,12 @@
                 </li>
 
                 {% if user.is_authenticated %}
-                    <li class="change-event">
-                        <a class="update-event" href="{% url "update-event" event.id %}">Edit Event</a>
-                        <a class="delete-event" href="{% url "delete-event" event.id %}">Delete Event</a>
-                    </li>
+                    {% if user == event.manager %}
+                        <li class="change-event">
+                            <a class="update-event" href="{% url "update-event" event.id %}">Edit Event</a>
+                            <a class="delete-event" href="{% url "delete-event" event.id %}">Delete Event</a>
+                        </li>
+                    {% endif %}
                 {% endif %}
             </ul>
         {% endfor %}

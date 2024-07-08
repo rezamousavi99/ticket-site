@@ -28,19 +28,28 @@
         {% endif %}
 
     <section id="venue-form">
+        {% if user == event.manager %}
         <h1>Update Event</h1>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {% for field in form %}
-            	<div class="venue-form-control {% if field.errors %}errors{% endif %}">
-                    {{ field.label_tag }}
-                    {{ field }}
-                    {{ field.errors }}
-                </div>
-            {% endfor %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="venue-form-control {% if field.errors %}errors{% endif %}">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
 
-            <button>Update</button>
-        </form>
+                <button>Update</button>
+            </form>
+        {% else %}
+            <h1>Access Denied</h1>
+            <p>Only the event's manager can update this event</p>
+
+            <h2>Logged in as {{ user }}</h2>
+            <h2>This event's manager is {{ event.manager }}</h2>
+        {% endif %}
+
         </section>
     {% endif %}
 

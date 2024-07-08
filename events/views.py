@@ -45,7 +45,7 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
     })
 
 def all_events(request):
-    events = Event.objects.all().order_by('-date')
+    events = Event.objects.all().order_by('date')
     return render(request, 'events/all_events.html', {
         'events': events,
         # 'all_attendees': events.attendees.all()
@@ -160,6 +160,7 @@ def update_event(request, event_id):
             submitted = True
 
     return render(request, "events/update_event.html", {
+        "event": existing_event,
         "form": event_form,
         "submitted": submitted
     })
