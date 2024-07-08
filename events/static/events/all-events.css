@@ -55,7 +55,8 @@
 }
 
 .update-event{
-    color: black;
+    background-color: #171c24;
+    color: white;
 }
 
 .change-event a:hover,
@@ -63,13 +64,13 @@
     color: white;
 }
 
-.update-event:hover,
-.update-event:active {
-    background-color: #ff3d00;
+a[href^="/update-event/"]:hover,
+a[href^="/update-event/"]:active {
+    color: #ff3d00;
 }
 
-.delete-event:hover,
-.delete-event:active {
+a[href^="/delete-event/"]:hover,
+a[href^="/delete-event/"]:active {
     background-color: #a40000;
 }
 
