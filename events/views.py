@@ -4,7 +4,7 @@ import calendar
 from calendar import HTMLCalendar, month_name
 from datetime import datetime
 from .models import Event, Venue
-from .forms import VenueForm, EventForm
+from .forms import VenueForm, EventForm, AdminEventForm
 from django.urls import reverse
 import csv
 
@@ -133,12 +133,23 @@ def update_venue(request, venue_id):
 def add_event(request):
     submitted = False
     if request.method == 'POST':
-        event_form = EventForm(request.POST)
-        if event_form.is_valid():
-            event_form.save()
-            return HttpResponseRedirect(reverse("add-event") + "?submitted=True")
+        if request.user.is_superuser:
+            event_form = AdminEventForm(request.POST)
+            if event_form.is_valid():
+                event_form.save()
+                return HttpResponseRedirect(reverse("add-event") + "?submitted=True")
+        else:
+            event_form = EventForm(request.POST)
+            if event_form.is_valid():
+                event = event_form.save(commit=False)
+                event.manager = request.user
+                event.save()
+                return HttpResponseRedirect(reverse("add-event") + "?submitted=True")
     else:
-        event_form = EventForm()
+        if request.user.is_superuser:
+            event_form = AdminEventForm()
+        else:
+            event_form = EventForm()
         if "submitted" in request.GET:
             submitted = True
 
@@ -152,12 +163,19 @@ def update_event(request, event_id):
     submitted = False
     existing_event = Event.objects.get(pk=event_id)
     if request.method == 'POST':
-        event_form = EventForm(request.POST, instance=existing_event)
+        if request.user.is_superuser:
+            event_form = AdminEventForm(request.POST, instance=existing_event)
+        else:
+            event_form = EventForm(request.POST, instance=existing_event)
         if event_form.is_valid():
             event_form.save()
             return HttpResponseRedirect(reverse("update-event", args=[existing_event.id]) + "?submitted=True")
     else:
-        event_form = EventForm(instance=existing_event)
+        if request.user.is_superuser:
+            event_form = AdminEventForm(instance=existing_event)
+        else:
+            event_form = EventForm(instance=existing_event)
+
         if "submitted" in request.GET:
             submitted = True
 
