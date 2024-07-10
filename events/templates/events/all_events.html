@@ -41,7 +41,7 @@
                 </li>
 
                 {% if user.is_authenticated %}
-                    {% if user == event.manager %}
+                    {% if user == event.manager or user.is_superuser %}
                         <li class="change-event">
                             <a class="update-event" href="{% url "update-event" event.id %}">Edit Event</a>
                             <a class="delete-event" href="{% url "delete-event" event.id %}">Delete Event</a>
