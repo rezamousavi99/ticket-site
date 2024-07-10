@@ -5,7 +5,7 @@ from events.models import Venue, Event
 class VenueForm(forms.ModelForm):
     class Meta:
         model = Venue
-        fields = "__all__"
+        exclude = ['owner']
 
 class EventForm(forms.ModelForm):
 

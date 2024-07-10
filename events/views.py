@@ -57,7 +57,9 @@ def add_venue(request):
     if request.method == 'POST':
         venue_form = VenueForm(request.POST)
         if venue_form.is_valid():
-            venue_form.save()
+            venue = venue_form.save(commit=False)
+            venue.owner = request.user.id
+            venue.save()
             return HttpResponseRedirect(reverse("add_venue") + "?submitted=True")
     else:
         venue_form = VenueForm()
