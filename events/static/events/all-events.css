@@ -79,3 +79,26 @@ a[href^="/delete-event/"]:active {
 }
 
 
+
+#error-alert {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+    border: 2px solid #700000;
+    background-color: #ffcbcb;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: #700000;
+}
+
+
+#success-alert {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+    border: 2px solid #035400;
+    background-color: #b8ffae;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: #035400;
+}

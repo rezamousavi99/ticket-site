@@ -44,10 +44,11 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
         "time": time
     })
 
-def all_events(request):
+def all_events(request, error_message=2):
     events = Event.objects.all().order_by('date')
     return render(request, 'events/all_events.html', {
         'events': events,
+        'error_message': error_message
         # 'all_attendees': events.attendees.all()
     })
 
@@ -186,10 +187,35 @@ def update_event(request, event_id):
     })
 
 
+#BUG
 def delete_event(request, event_id):
+    # events = Event.objects.all().order_by('date')
+    error_massage = False
     event = Event.objects.get(pk=event_id)
-    event.delete()
-    return HttpResponseRedirect(reverse("all_events"))
+    # event = events.get(id=event_id)
+    if request.user == event.manager:
+        event.delete()
+        return all_events(request, error_massage)
+    else:
+        error_massage = True
+        # return all_events(request, error_massage)
+        return HttpResponseRedirect(reverse("all_events"))
+
+
+# def delete_event(request, event_id):
+#     events = Event.objects.all().order_by('date')
+#     error_massage = False
+#     # event = Event.objects.get(pk=event_id)
+#     event = events.get(id=event_id)
+#     if request.user == event.manager:
+#         event.delete()
+#     else:
+#         error_massage = True
+#     # return HttpResponseRedirect(reverse("all_events"))
+#     return render(request, "events/all_events.html", {
+#         'error_massage': error_massage,
+#         'events': events
+#     })
 
 def delete_venue(request, venue_id):
     venue = Venue.objects.get(pk=venue_id)

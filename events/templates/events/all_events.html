@@ -10,6 +10,19 @@
 {% endblock %}
 
 {% block content %}
+    {% if error_message == True %}
+        <section id="error-alert" role="alert">
+        	<div>
+                <h2>You aren't authorized to delete this event!</h2>
+            </div>
+        </section>
+    {% elif error_message == False %}
+        <section id="success-alert" role="alert">
+        	<div>
+                <h2>Event deleted!</h2>
+            </div>
+        </section>
+    {% endif %}
     <section id="all-events">
         <h1>Events</h1>
         {% for event in events %}
