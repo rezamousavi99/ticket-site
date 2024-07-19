@@ -15,6 +15,8 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 
 from django.core.paginator import Paginator
+from django.contrib.auth.models import User
+
 # Create your views here.
 
 
@@ -93,8 +95,10 @@ def list_venues(request):
 
 def detail_venue(request, venue_id):
     venue = Venue.objects.get(pk=venue_id)
+    venue_owner = User.objects.get(pk=venue.owner)
     return render(request, 'events/detail_venue.html', {
-        'venue': venue
+        'venue': venue,
+        'venue_owner': venue_owner
     })
 
 
