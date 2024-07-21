@@ -1,0 +1,131 @@
+#all-events {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 80rem;
+
+}
+
+#all-events h1{
+    margin-top: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#all-events ul{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    border-radius: 6px;
+    padding: 2rem 4rem;
+}
+
+#all-events li{
+    list-style: none;
+
+}
+
+/*.update-event{*/
+/*    margin-top: 1rem;*/
+/*    text-align: center;*/
+/*    max-width: 8rem;*/
+/*    text-decoration: none;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 6px;*/
+/*}*/
+
+.change-event{
+    margin-top: 2rem;
+
+    /*max-width: 8rem;*/
+}
+
+.change-event a{
+    padding: 0.5rem 0.75rem;
+    font-weight: bold;
+    /*display: block;*/
+    text-align: center;
+    text-decoration: none;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.delete-event{
+    /*background-color: #f6f8fa;*/
+    color: #a40000;
+}
+
+.update-event{
+    background-color: #171c24;
+    color: white;
+}
+
+.change-event a:hover,
+.change-event a:active {
+    color: white;
+}
+
+a[href^="/update-event/"]:hover,
+a[href^="/update-event/"]:active {
+    color: #ff3d00;
+}
+
+a[href^="/delete-event/"]:hover,
+a[href^="/delete-event/"]:active {
+    background-color: #a40000;
+}
+
+.date {
+    font-weight: bold;
+}
+
+
+
+#error-alert {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+    border: 2px solid #700000;
+    background-color: #ffcbcb;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: #700000;
+}
+
+
+#success-alert {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+    border: 2px solid #035400;
+    background-color: #b8ffae;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: #035400;
+}
+
+.alert-error ,#login-alert {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+    border: 2px solid #700000;
+    background-color: #ffcbcb;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: #700000;
+}
+
+#login-alert a{
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #14181f;
+    border-radius: 6px;
+    background-color: #14181f;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+#login-alert a:hover,
+#login-alert a:active{
+    background-color: #ff3d00;
+    color: #14181f;
+}

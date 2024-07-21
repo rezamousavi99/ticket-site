@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	my events
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "events/my-events.css" %}">
+
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+
+        <section id="all-events">
+            <h1>Events</h1>
+            {% for event in my_events %}
+                <ul>
+                    <li>
+                        <h2>{{ event.name }}</h2>
+                    </li>
+                    <li>
+                        <strong>Date: </strong>
+                        {{ event.date }}
+                    </li>
+                    <li>
+                        <strong>Venue: </strong>
+                        {{ event.venue }}
+                    </li>
+                    <li>
+                        <strong>Manager: </strong>
+                        {{ event.manager }}
+                    </li>
+                    <li>
+                        <strong>Description: </strong>
+                        {{ event.description }}
+                    </li>
+                    <li>
+                        <strong>Confirmed Attendees:</strong><br>
+                        {% for user in event.attendees.all %}
+                            {{ user }}<br>
+                        {% endfor %}
+                    </li>
+                </ul>
+            {% endfor %}
+
+        </section>
+    {% else %}
+        <section id="login-alert">
+            <h1>Sorry! You must be logged in to view this page...</h1>
+            <a href="{% url "login" %}">Log in</a>
+        </section>
+    {% endif %}
+{% endblock %}

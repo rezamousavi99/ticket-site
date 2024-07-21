@@ -15,6 +15,7 @@
 
         <li><a href="{% url "all_events" %}">Events</a></li>
         <li><a href="{% url "add-event" %}">Add Event</a></li>
+        <li><a href="{% url "my-events" %}">My Events</a></li>
         <li><a href="{% url "list_venues" %}">Venues</a></li>
         <li><a href="{% url "add_venue" %}">Add Venue</a></li>
          {% if user.is_authenticated %}

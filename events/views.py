@@ -290,3 +290,11 @@ def venue_pdf(request):
     buf.seek(0)
 
     return FileResponse(buf, as_attachment=True, filename='venues.pdf')
+
+def my_events(request):
+    #BUG
+    user_attendee = request.user.id
+    my_events = Event.objects.filter(attendees=user_attendee)
+    return render(request, 'events/my_events.html', {
+        'my_events': my_events,
+    })
