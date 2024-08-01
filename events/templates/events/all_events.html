@@ -23,46 +23,63 @@
             </div>
         </section>
     {% endif %}
-    <section id="all-events">
-        <h1>Events</h1>
-        {% for event in events %}
-            <ul>
-                <li>
-                    <h2>{{ event.name }}</h2>
-                </li>
-                <li>
-                    <strong>Date: </strong>
-                    {{ event.date }}
-                </li>
-                <li>
-                    <strong>Venue: </strong>
-                    {{ event.venue }}
-                </li>
-                <li>
-                    <strong>Manager: </strong>
-                    {{ event.manager }}
-                </li>
-                <li>
-                    <strong>Description: </strong>
-                    {{ event.description }}
-                </li>
-                <li>
-                    <strong>Confirmed Attendees:</strong><br>
-                    {% for user in event.attendees.all %}
-                        {{ user }}<br>
-                    {% endfor %}
-                </li>
 
-                {% if user.is_authenticated %}
-                    {% if user == event.manager or user.is_superuser %}
-                        <li class="change-event">
-                            <a class="update-event" href="{% url "update-event" event.id %}">Edit Event</a>
-                            <a class="delete-event" href="{% url "delete-event" event.id %}">Delete Event</a>
-                        </li>
-                    {% endif %}
-                {% endif %}
-            </ul>
-        {% endfor %}
+    <section id="search-box">
+        <form action="{% url 'all_events' %}" method="POST">
+            {% csrf_token %}
+            <div>
+                <input type="search" placeholder="Search Events..." name="search_input">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </section>
+    <section id="all-events">
+        {% if events %}
+            {% if search_input %}
+            	<h1>You searched for "{{ search_input }}"</h1>
+            {% else %}
+                <h1>All Events</h1>
+            {% endif %}
+            {% for event in events %}
+                        <ul>
+                            <li>
+                                <h2>{{ event.name }}</h2>
+                            </li>
+                            <li>
+                                <strong>Date: </strong>
+                                {{ event.date }}
+                            </li>
+                            <li>
+                                <strong>Venue: </strong>
+                                {{ event.venue }}
+                            </li>
+                            <li>
+                                <strong>Manager: </strong>
+                                {{ event.manager }}
+                            </li>
+                            <li>
+                                <strong>Description: </strong>
+                                {{ event.description }}
+                            </li>
+                            <li>
+                                <strong>Confirmed Attendees:</strong><br>
+                                {% for user in event.attendees.all %}
+                                    {{ user }}<br>
+                                {% endfor %}
+                            </li>
+
+                            {% if user.is_authenticated %}
+                                {% if user == event.manager or user.is_superuser %}
+                                    <li class="change-event">
+                                        <a class="update-event" href="{% url "update-event" event.id %}">Edit Event</a>
+                                        <a class="delete-event" href="{% url "delete-event" event.id %}">Delete Event</a>
+                                    </li>
+                                {% endif %}
+                            {% endif %}
+                        </ul>
+                    {% endfor %}
+        {% endif %}
+
 
     </section>
 {% endblock %}

@@ -102,3 +102,37 @@ a[href^="/delete-event/"]:active {
     padding: 1rem 2rem;
     color: #035400;
 }
+
+
+#search-box {
+    margin: 8rem auto 3rem auto;
+    width: 90%;
+    max-width: 60rem;
+}
+
+#search-box div {
+    display: flex;
+}
+
+#search-box input{
+    width: 100%;
+    font: inherit;
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#search-box button{
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-weight: bold;
+    background: #ff3d00;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#search-box button:hover,
+#search-box button:active{
+    background: #e63600;
+}

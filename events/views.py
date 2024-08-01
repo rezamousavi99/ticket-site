@@ -47,12 +47,26 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
     })
 
 def all_events(request, error_message=2):
-    events = Event.objects.all().order_by('date')
-    return render(request, 'events/all_events.html', {
-        'events': events,
-        'error_message': error_message
-        # 'all_attendees': events.attendees.all()
-    })
+    if request.method == 'POST':
+        search_input = request.POST.get('search_input')
+        searched_events = Event.objects.filter(name__contains=search_input)
+        print('*' * 40)
+        print(search_input)
+        print(searched_events)
+        print('*' * 40)
+
+        return render(request, 'events/all_events.html', {
+            'events': searched_events,
+            'search_input': search_input,
+            'error_message': error_message
+        })
+    else:
+        events = Event.objects.all().order_by('date')
+        return render(request, 'events/all_events.html', {
+            'events': events,
+            'error_message': error_message
+            # 'all_attendees': events.attendees.all()
+        })
 
 
 def add_venue(request):
@@ -115,6 +129,18 @@ def search_venues(request):
         })
     else:
         return render(request, 'events/search_venues.html', {})
+
+# def search_events(request):
+#     if request.method == "POST":
+#         search_input = request.POST.get('search_input')
+#         searched_events = Event.objects.filter(name__contains=search_input)
+#
+#         return render(request, 'events/search_events.html', {
+#             'searched_events': searched_events,
+#             'search_input': search_input
+#         })
+#     else:
+#         return render(request, 'events/search_events.html', {})
 
 def update_venue(request, venue_id):
     submitted = False
