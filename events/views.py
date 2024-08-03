@@ -217,7 +217,7 @@ def update_event(request, event_id):
     })
 
 
-#FIXME
+#BUG
 def delete_event(request, event_id):
     # events = Event.objects.all().order_by('date')
     error_massage = False
@@ -318,7 +318,7 @@ def venue_pdf(request):
     return FileResponse(buf, as_attachment=True, filename='venues.pdf')
 
 def my_events(request):
-    #FIXME
+    #BUG
     user_attendee = request.user.id
     my_events = Event.objects.filter(attendees=user_attendee)
     return render(request, 'events/my_events.html', {
